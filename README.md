@@ -80,6 +80,10 @@ python src/modelos_sociodemo_n41.py   # < 1 min
 # 3b) Matriz de intercorrelaciones de las dimensiones BEPE (Apéndice B / §5.1).
 python src/intercorrelaciones.py      # segundos
 #    → resultados/intercorrelaciones_bepe_n41.{csv,png}
+
+# 3c) Figura 3 (§6): correcciones de Thorndike observada vs corregida (lee el JSON del paso 1).
+python src/fig_thorndike_obs_vs_corr.py   # segundos
+#    → resultados/fig_thorndike_obs_vs_corr_n41.png
 ```
 
 ### Capítulo 7 (estudio de simulación)
@@ -139,6 +143,7 @@ del estudio de simulación está en `resultados/cap7_preregistro.md`.
 | §5.2 | `fig_saturacion_percentiles_n41.png` |
 | §5.x (modelos) | `resultados_cap456_n41.json`, salida de `modelos_sociodemo_n41.py` |
 | §6.3 | `fig_permutacion_auc_n41.png`, `null_aucs_real_n41.npy` |
-| §6 (Thorndike) | `cap7_thorndike_n41.{csv,png}` |
+| §6 / Figura 3 (Thorndike, obs. vs corregida) | `fig_thorndike_obs_vs_corr_n41.png` |
+| §6 (Thorndike, validación cruzada del simulador) | `cap7_thorndike_n41.{csv,png}` |
 | §7 (potencia) | `cap7_potencia_caso_real_n41.csv`, `cap7_curva_aprendizaje_n41.png`, `cap7_mapa_detectabilidad_n41.png` |
 | §7 (validación/sensibilidad) | `cap7_validacion_tabla_n41.csv`, `cap7_sensibilidad_resumen_n41.csv`, `cap7_sensibilidad_figura_n41.png` |
