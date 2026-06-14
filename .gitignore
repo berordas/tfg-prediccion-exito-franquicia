@@ -1,0 +1,35 @@
+# === DATOS PERSONALES — denegación por defecto ===========================
+# Se ignora TODO el contenido de data/ y solo se permite, de forma
+# explícita, el dataset seudonimizado (IDs S001–S045, sin correos ni
+# nombres). Cualquier fichero nuevo en data/ queda excluido salvo que se
+# añada aquí a mano. Esto evita filtrar datos personales por descuido.
+data/*
+!data/dataset_franquicias_seudonimizado.xlsx
+
+# Refuerzo explícito (por si se cambia la regla anterior):
+data/bepe/
+*.zip
+data/dataset_franquicias.xlsx
+data/dataset_franquicias.csv
+data/ego_*.csv
+data/exito_*.xlsx
+
+# === SECRETOS =============================================================
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+credentials.*
+
+# === ARTEFACTOS DE PYTHON =================================================
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# === SISTEMA OPERATIVO ====================================================
+.DS_Store
+Thumbs.db

@@ -1,0 +1,292 @@
+{
+ "cap4_correlaciones": [
+  {
+   "var": "BEPE_AE_PD",
+   "r": -0.107,
+   "p": 0.505,
+   "ci": [
+    -0.402,
+    0.207
+   ],
+   "d": -0.218
+  },
+  {
+   "var": "BEPE_AU_PD",
+   "r": 0.047,
+   "p": 0.771,
+   "ci": [
+    -0.265,
+    0.349
+   ],
+   "d": 0.095
+  },
+  {
+   "var": "BEPE_IN_PD",
+   "r": -0.097,
+   "p": 0.545,
+   "ci": [
+    -0.393,
+    0.217
+   ],
+   "d": -0.198
+  },
+  {
+   "var": "BEPE_LI_PD",
+   "r": 0.066,
+   "p": 0.682,
+   "ci": [
+    -0.247,
+    0.366
+   ],
+   "d": 0.134
+  },
+  {
+   "var": "BEPE_ML_PD",
+   "r": -0.113,
+   "p": 0.482,
+   "ci": [
+    -0.406,
+    0.202
+   ],
+   "d": -0.23
+  },
+  {
+   "var": "BEPE_OP_PD",
+   "r": -0.154,
+   "p": 0.335,
+   "ci": [
+    -0.441,
+    0.161
+   ],
+   "d": -0.317
+  },
+  {
+   "var": "BEPE_TE_PD",
+   "r": -0.218,
+   "p": 0.171,
+   "ci": [
+    -0.493,
+    0.096
+   ],
+   "d": -0.453
+  },
+  {
+   "var": "BEPE_TR_PD",
+   "r": -0.16,
+   "p": 0.318,
+   "ci": [
+    -0.446,
+    0.155
+   ],
+   "d": -0.328
+  },
+  {
+   "var": "ego",
+   "r": 0.027,
+   "p": 0.865,
+   "ci": [
+    -0.283,
+    0.332
+   ],
+   "d": 0.056
+  }
+ ],
+ "cap4_por_ensena": {
+  "Japanese": {
+   "n": 18,
+   "r": -0.033,
+   "p": 0.897
+  },
+  "Brooklyn": {
+   "n": 23,
+   "r": -0.173,
+   "p": 0.429
+  }
+ },
+ "cap5_modelos": {
+  "elasticnet": {
+   "auc_loo": 0.29,
+   "auc_resub": 0.5
+  },
+  "gboost": {
+   "auc_loo": 0.39,
+   "auc_resub": 1.0
+  },
+  "ridge": {
+   "auc_loo": 0.29,
+   "auc_resub": 0.723
+  },
+  "permutacion": {
+   "p": 0.869,
+   "null_p95": 0.662,
+   "null_mean": 0.445
+  },
+  "tasa_base": 0.634
+ },
+ "cap6_techo": {
+  "AE": {
+   "p95": 34.1,
+   "p99": 24.4
+  },
+  "AU": {
+   "p95": 14.6,
+   "p99": 7.3
+  },
+  "IN": {
+   "p95": 34.1,
+   "p99": 26.8
+  },
+  "LI": {
+   "p95": 24.4,
+   "p99": 9.8
+  },
+  "ML": {
+   "p95": 31.7,
+   "p99": 22.0
+  },
+  "OP": {
+   "p95": 34.1,
+   "p99": 24.4
+  },
+  "TE": {
+   "p95": 12.2,
+   "p99": 4.9
+  },
+  "TR": {
+   "p95": 48.8,
+   "p99": 22.0
+  },
+  "EMP": {
+   "p95": 31.7,
+   "p99": 12.2
+  }
+ },
+ "cap6_grit": {
+  "media": 4.44,
+  "p_ge_4": 82.9,
+  "p_ge_45": 53.7
+ },
+ "cap6_thorndike": [
+  {
+   "dim": "AE",
+   "media_muestra": 42.1,
+   "sd_muestra": 5.34,
+   "media_norma": 37.55,
+   "sd_norma": 5.05,
+   "r_obs": -0.107,
+   "U": 0.94,
+   "r_corregida": -0.101
+  },
+  {
+   "dim": "AU",
+   "media_muestra": 40.4,
+   "sd_muestra": 5.03,
+   "media_norma": 40.64,
+   "sd_norma": 4.98,
+   "r_obs": 0.047,
+   "U": 0.99,
+   "r_corregida": 0.046
+  },
+  {
+   "dim": "IN",
+   "media_muestra": 43.8,
+   "sd_muestra": 4.9,
+   "media_norma": 38.75,
+   "sd_norma": 4.5,
+   "r_obs": -0.097,
+   "U": 0.92,
+   "r_corregida": -0.089
+  },
+  {
+   "dim": "LI",
+   "media_muestra": 42.3,
+   "sd_muestra": 6.32,
+   "media_norma": 39.54,
+   "sd_norma": 5.36,
+   "r_obs": 0.066,
+   "U": 0.85,
+   "r_corregida": 0.056
+  },
+  {
+   "dim": "ML",
+   "media_muestra": 43.3,
+   "sd_muestra": 4.94,
+   "media_norma": 39.91,
+   "sd_norma": 4.43,
+   "r_obs": -0.113,
+   "U": 0.9,
+   "r_corregida": -0.101
+  },
+  {
+   "dim": "OP",
+   "media_muestra": 43.5,
+   "sd_muestra": 5.66,
+   "media_norma": 38.77,
+   "sd_norma": 5.27,
+   "r_obs": -0.154,
+   "U": 0.93,
+   "r_corregida": -0.144
+  },
+  {
+   "dim": "TE",
+   "media_muestra": 35.3,
+   "sd_muestra": 5.7,
+   "media_norma": 32.66,
+   "sd_norma": 6.57,
+   "r_obs": -0.218,
+   "U": 1.15,
+   "r_corregida": -0.25
+  },
+  {
+   "dim": "TR",
+   "media_muestra": 43.0,
+   "sd_muestra": 5.01,
+   "media_norma": 36.84,
+   "sd_norma": 5.31,
+   "r_obs": -0.16,
+   "U": 1.06,
+   "r_corregida": -0.169
+  }
+ ],
+ "cap6_potencia": {
+  "n1": 26,
+  "n2": 15,
+  "MDE": 0.93,
+  "AUC_equiv_MDE": 0.745,
+  "n_por_grupo_requerido": {
+   "0.2": 394,
+   "0.3": 176,
+   "0.35": 130,
+   "0.5": 64,
+   "0.8": 26
+  },
+  "AUC_d035": 0.598,
+  "AUC_d05": 0.638
+ },
+ "cap4_medias": {
+  "exito1": {
+   "BEPE_AE_PD": 41.69,
+   "BEPE_AU_PD": 40.62,
+   "BEPE_IN_PD": 43.42,
+   "BEPE_LI_PD": 42.65,
+   "BEPE_ML_PD": 42.92,
+   "BEPE_OP_PD": 42.81,
+   "BEPE_TE_PD": 34.38,
+   "BEPE_TR_PD": 42.42,
+   "ego": 4.45
+  },
+  "exito0": {
+   "BEPE_AE_PD": 42.87,
+   "BEPE_AU_PD": 40.13,
+   "BEPE_IN_PD": 44.4,
+   "BEPE_LI_PD": 41.8,
+   "BEPE_ML_PD": 44.07,
+   "BEPE_OP_PD": 44.6,
+   "BEPE_TE_PD": 36.93,
+   "BEPE_TR_PD": 44.07,
+   "ego": 4.43
+  }
+ },
+ "intercorr_media": 0.519,
+ "grit_ML": 0.611
+}

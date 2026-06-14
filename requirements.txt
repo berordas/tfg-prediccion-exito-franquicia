@@ -1,0 +1,15 @@
+# Reproducción del TFG — versiones fijadas (entorno de desarrollo)
+# Python 3.13.1
+#
+# Nota: scikit-learn >= 1.8 es OBLIGATORIO. sim_capitulo7.py y
+# pipeline usan LogisticRegression con el parámetro `l1_ratio`
+# (la API `penalty=` quedó deprecada en 1.8). Con versiones < 1.8
+# los modelos elastic-net/ridge fallarán o avisarán.
+numpy==2.2.4
+pandas==3.0.2
+scipy==1.17.1
+scikit-learn==1.9.0
+matplotlib==3.10.9
+statsmodels==0.14.6
+openpyxl==3.1.5
+joblib==1.5.3
