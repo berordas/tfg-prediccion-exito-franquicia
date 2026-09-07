@@ -37,11 +37,11 @@ salida y su sección está en [Mapa salidas → memoria](#mapa-salidas--memoria)
 ├── .gitignore
 ├── data/                          # NO incluido en el repo (datos privados) — ver «Datos»
 ├── src/
-│   ├── analisis_tfg.py            # Cap. 4–6: correlaciones, modelos LOO, Thorndike, potencia, permutación
-│   ├── figuras_cap5_cap6.py       # Figuras §5.2 (saturación) y §6.3 (distribución nula de permutación)
-│   ├── modelos_sociodemo_n41.py   # Cap. 5: modelos logísticos sociodemográfico y combinado (AUC resub/LOO)
-│   ├── sim_capitulo7.py           # Cap. 7: simulación Monte Carlo completa (calibración → rejilla → productos → sensibilidad)
-│   ├── cap7_nulos_extra.py        # Cap. 7: refuerzo de validación (nulas frescas independientes)
+│   ├── analisis_tfg.py            # §5.1–5.3: correlaciones, modelos LOO, Thorndike, potencia, permutación
+│   ├── figuras_cap5_cap6.py       # Figuras §5.1.2 (saturación) y §5.2.3 (nula de permutación)
+│   ├── modelos_sociodemo_n41.py   # §5.2: modelos logísticos sociodemográfico y combinado (AUC resub/LOO)
+│   ├── sim_capitulo7.py           # §5.4: simulación Monte Carlo completa (calibración → rejilla → productos → sensibilidad)
+│   ├── cap7_nulos_extra.py        # §5.4: refuerzo de validación (nulas frescas independientes)
 │   └── sim_tfg.py                 # Procedencia: demo reducida de la dirección (no forma parte de la reproducción)
 └── resultados/
     ├── TFG - Ordás Cernadas, Bernardo.pdf   # ← memoria (ver aviso arriba)
@@ -85,7 +85,7 @@ cero hace falta el dataset en `data/` (ver [Datos](#datos)) y ejecutar **desde l
 raíz del repositorio** en este orden. Los tiempos son orientativos sobre 16
 núcleos (la simulación paraleliza con `joblib`).
 
-### Capítulos 4–6 (análisis del dataset real)
+### Análisis del dataset real (§5.1–5.3)
 
 ```bash
 # 1) Correlaciones, d de Cohen, modelos con LOO, Thorndike, potencia analítica
@@ -93,7 +93,7 @@ núcleos (la simulación paraleliza con `joblib`).
 python src/analisis_tfg.py            # ~2–5 min
 #    → resultados/resultados_cap456_n41.json, resultados/null_aucs_real_n41.npy
 
-# 2) Figuras §5.2 y §6.3 (requiere los dos ficheros del paso 1).
+# 2) Figuras §5.1.2 y §5.2.3 (requiere los dos ficheros del paso 1).
 python src/figuras_cap5_cap6.py       # segundos
 #    → resultados/fig_saturacion_percentiles_n41.png
 #    → resultados/fig_permutacion_auc_n41.png
@@ -101,16 +101,16 @@ python src/figuras_cap5_cap6.py       # segundos
 # 3) Modelos sociodemográfico y combinado (imprime AUC resustitución y LOO).
 python src/modelos_sociodemo_n41.py   # < 1 min
 
-# 3b) Matriz de intercorrelaciones de las dimensiones BEPE (Apéndice B / §5.1).
+# 3b) Matriz de intercorrelaciones de las dimensiones BEPE (Apéndice B / §5.1.1).
 python src/intercorrelaciones.py      # segundos
 #    → resultados/intercorrelaciones_bepe_n41.{csv,png}
 
-# 3c) Figura 3 (§6): correcciones de Thorndike observada vs corregida (lee el JSON del paso 1).
+# 3c) Figura 3 (§5.3.1): Thorndike observada vs corregida (lee el JSON del paso 1).
 python src/fig_thorndike_obs_vs_corr.py   # segundos
 #    → resultados/fig_thorndike_obs_vs_corr_n41.png
 ```
 
-### Capítulo 7 (estudio de simulación)
+### Estudio de simulación (§5.4)
 
 ```bash
 # 4) Calibración del generador (Paso 4): τ*, δ, betas por celda, tablas/figura real vs sintético.
@@ -154,8 +154,8 @@ python src/sim_capitulo7.py --sensibilidad --m 500    # ~2,5 h
 
 ## Reproducibilidad
 
-Todas las semillas están fijadas (`SeedSequence` raíz `20260611` en el
-Capítulo 7, con ramas +100 rejilla, +200 LOO, +300 sensibilidad, +400 nulas
+Todas las semillas están fijadas (`SeedSequence` raíz `20260611` en la
+simulación (§5.4), con ramas +100 rejilla, +200 LOO, +300 sensibilidad, +400 nulas
 frescas; semilla `20260610` en `analisis_tfg.py`). El preregistro de decisiones
 del estudio de simulación está en `resultados/cap7_preregistro.md`.
 
@@ -163,13 +163,20 @@ del estudio de simulación está en `resultados/cap7_preregistro.md`.
 
 Sección de la [memoria](resultados/TFG%20-%20Ord%C3%A1s%20Cernadas%2C%20Bernardo.pdf) en la que se cita cada salida de `resultados/`.
 
+> Los nombres de los scripts y de las salidas (`sim_capitulo7.py`, `cap7_*`,
+> `resultados_cap456_*`) conservan la numeración de una versión anterior de la
+> memoria, que tenía nueve capítulos. No se han renombrado para no romper rutas;
+> la correspondencia con la numeración actual es la de esta tabla.
+
 | Sección | Producto |
 |---|---|
-| §5.1 / Apéndice B (matriz de intercorrelaciones) | `intercorrelaciones_bepe_n41.{csv,png}` |
-| §5.2 | `fig_saturacion_percentiles_n41.png` |
-| §5.x (modelos) | `resultados_cap456_n41.json`, salida de `modelos_sociodemo_n41.py` |
-| §6.3 | `fig_permutacion_auc_n41.png`, `null_aucs_real_n41.npy` |
-| §6 / Figura 3 (Thorndike, obs. vs corregida) | `fig_thorndike_obs_vs_corr_n41.png` |
-| §6 (Thorndike, validación cruzada del simulador) | `cap7_thorndike_n41.{csv,png}` |
-| §7 (potencia) | `cap7_potencia_caso_real_n41.csv`, `cap7_curva_aprendizaje_n41.png`, `cap7_mapa_detectabilidad_n41.png` |
-| §7 (validación/sensibilidad) | `cap7_validacion_tabla_n41.csv`, `cap7_sensibilidad_resumen_n41.csv`, `cap7_sensibilidad_figura_n41.png` |
+| §5.1.1 / Apéndice B (intercorrelaciones BEPE) | `intercorrelaciones_bepe_n41.{csv,png}` |
+| §5.1.2 — Figura 1 (efecto techo) | `fig_saturacion_percentiles_n41.png` |
+| §5.2 (modelos) | `resultados_cap456_n41.json`, salida de `modelos_sociodemo_n41.py` |
+| §5.2.3 — Figura 2 (permutación del AUC) | `fig_permutacion_auc_n41.png`, `null_aucs_real_n41.npy` |
+| §5.3.1 — Figura 3 (Thorndike, obs. vs corregida) | `fig_thorndike_obs_vs_corr_n41.png` |
+| §5.3.1 (Thorndike, contraste con el simulador) | `cap7_thorndike_n41.{csv,png}` |
+| §5.3.2 — Figura 4 (curva de potencia frente a n) | `cap7_curva_potencia_n41.png` |
+| §5.4.2 — Figura 5 (validación del generador) | `cap7_calibracion_{tabla,betas}_n41.csv`, `cap7_calibracion_figura_n41.png`, `cap7_validacion_tabla_n41.csv` |
+| §5.4.3 — Figura 6 (potencia, curva de aprendizaje, detectabilidad) | `cap7_potencia_caso_real_n41.csv`, `cap7_curva_aprendizaje_n41.png`, `cap7_mapa_detectabilidad_n41.png` |
+| §5.4.4 — Figura 7 (sensibilidad) | `cap7_sensibilidad_figura_n41.png`, `cap7_sensibilidad_resumen_n41.csv` |
