@@ -12,6 +12,22 @@ muestral *sería* detectable un efecto realista. La conclusión es que, con la
 muestra disponible, el procedimiento no puede detectar un efecto de tamaño
 realista, y el estudio entrega el mapa de cuándo podría.
 
+## Memoria
+
+El documento del TFG —planteamiento, marco teórico, método, resultados y
+discusión— está incluido en el repositorio:
+
+📄 **[TFG — Ordás Cernadas, Bernardo (PDF)](resultados/TFG%20-%20Ord%C3%A1s%20Cernadas%2C%20Bernardo.pdf)**
+
+> **Versión pública.** Las enseñas colaboradoras facilitaron sus criterios
+> internos de éxito de forma confidencial, por lo que esta versión los sustituye
+> por una formulación genérica en los apartados 4.4 y 6.4. El resto del documento
+> se publica íntegro.
+
+Lo que sigue es el **apéndice computacional** de esa memoria: el código que
+genera las tablas y figuras que allí se citan. La correspondencia entre cada
+salida y su sección está en [Mapa salidas → memoria](#mapa-salidas--memoria).
+
 ## Estructura del repositorio
 
 ```
@@ -19,8 +35,7 @@ realista, y el estudio entrega el mapa de cuándo podría.
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── data/
-│   └── dataset_franquicias_seudonimizado.xlsx   # n=45 (41 etiquetados), IDs S001–S045, sin datos personales
+├── data/                          # NO incluido en el repo (datos privados) — ver «Datos»
 ├── src/
 │   ├── analisis_tfg.py            # Cap. 4–6: correlaciones, modelos LOO, Thorndike, potencia, permutación
 │   ├── figuras_cap5_cap6.py       # Figuras §5.2 (saturación) y §6.3 (distribución nula de permutación)
@@ -28,7 +43,9 @@ realista, y el estudio entrega el mapa de cuándo podría.
 │   ├── sim_capitulo7.py           # Cap. 7: simulación Monte Carlo completa (calibración → rejilla → productos → sensibilidad)
 │   ├── cap7_nulos_extra.py        # Cap. 7: refuerzo de validación (nulas frescas independientes)
 │   └── sim_tfg.py                 # Procedencia: demo reducida de la dirección (no forma parte de la reproducción)
-└── resultados/                    # Salidas precalculadas (tablas, JSON, figuras) — se regeneran con los scripts
+└── resultados/
+    ├── TFG - Ordás Cernadas, Bernardo.pdf   # ← memoria (ver aviso arriba)
+    └── ...                         # Salidas precalculadas (tablas, JSON, figuras) — se regeneran con los scripts
 ```
 
 ## Requisitos
@@ -46,11 +63,17 @@ pip install -r requirements.txt
 
 ## Datos
 
-`data/dataset_franquicias_seudonimizado.xlsx` contiene 45 filas (41 con la
-variable `exito` etiquetada: 26 éxito / 15 no-éxito; tasa base 0,634), con IDs
-seudonimizados `S001`–`S045`, sin correos ni códigos reidentificables. **Los
-datos crudos (informes BEPE individuales, dataset original con correos, tabla
-de correspondencia) no se incluyen por protección de datos.**
+**Los datos no se publican en este repositorio.** Por protección de datos no se
+distribuyen aquí ni el dataset seudonimizado ni los datos crudos (informes BEPE
+individuales, dataset original con correos, tabla de correspondencia); la carpeta
+`data/` está ignorada por completo en `.gitignore`.
+
+El fichero que consumen los scripts es `data/dataset_franquicias_seudonimizado.xlsx`:
+45 filas (41 con la variable `exito` etiquetada: 26 éxito / 15 no-éxito; tasa base
+0,634), IDs seudonimizados `S001`–`S045`, sin correos ni códigos reidentificables.
+Para reejecutar los análisis hay que colocarlo en esa ruta. Sin él, los resultados
+siguen siendo consultables: las tablas y figuras ya vienen precalculadas en
+`resultados/` y comentadas en la [memoria](resultados/TFG%20-%20Ord%C3%A1s%20Cernadas%2C%20Bernardo.pdf).
 
 Todos los scripts resuelven sus rutas con `Path(__file__)`, de modo que se
 ejecutan desde cualquier directorio sin variables de entorno.
@@ -58,8 +81,9 @@ ejecutan desde cualquier directorio sin variables de entorno.
 ## Orden de ejecución
 
 Las salidas ya vienen precalculadas en `resultados/`. Para regenerarlas desde
-cero, ejecutar **desde la raíz del repositorio** en este orden. Los tiempos son
-orientativos sobre 16 núcleos (la simulación paraleliza con `joblib`).
+cero hace falta el dataset en `data/` (ver [Datos](#datos)) y ejecutar **desde la
+raíz del repositorio** en este orden. Los tiempos son orientativos sobre 16
+núcleos (la simulación paraleliza con `joblib`).
 
 ### Capítulos 4–6 (análisis del dataset real)
 
@@ -136,6 +160,8 @@ frescas; semilla `20260610` en `analisis_tfg.py`). El preregistro de decisiones
 del estudio de simulación está en `resultados/cap7_preregistro.md`.
 
 ## Mapa salidas → memoria
+
+Sección de la [memoria](resultados/TFG%20-%20Ord%C3%A1s%20Cernadas%2C%20Bernardo.pdf) en la que se cita cada salida de `resultados/`.
 
 | Sección | Producto |
 |---|---|

@@ -1,10 +1,9 @@
-# === DATOS PERSONALES — denegación por defecto ===========================
-# Se ignora TODO el contenido de data/ y solo se permite, de forma
-# explícita, el dataset seudonimizado (IDs S001–S045, sin correos ni
-# nombres). Cualquier fichero nuevo en data/ queda excluido salvo que se
-# añada aquí a mano. Esto evita filtrar datos personales por descuido.
+# === DATOS PERSONALES — denegación total ==================================
+# Se ignora TODO el contenido de data/ sin excepciones: los datos del estudio
+# (incluido el dataset seudonimizado) son privados y no se publican en el
+# repositorio. Cualquier fichero en data/ queda excluido, lo que evita
+# filtrar datos personales por descuido con un `git add -A`.
 data/*
-!data/dataset_franquicias_seudonimizado.xlsx
 
 # Refuerzo explícito (por si se cambia la regla anterior):
 data/bepe/
